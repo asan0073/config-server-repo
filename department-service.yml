@@ -3,6 +3,7 @@ server:
 spring:
   boot:
     message: Hello, Department Service... Spring Cloud Bus Demo
+  datasource:
     url: jdbc:mysql://localhost:3306/department_db
     username: root
     password: root1234
