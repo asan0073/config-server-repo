@@ -2,7 +2,7 @@ server:
   port: 8083
 spring:
   boot:
-    message: Hello, Employee Service... Spring Cloud Bus Demp
+    message: Hello, Employee Service... Spring Cloud Bus ????
   datasource:
     url: jdbc:mysql://localhost:3306/employee_db
     username: root

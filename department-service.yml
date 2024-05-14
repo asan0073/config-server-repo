@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   boot:
-    message: Hello, Department Service... Spring Cloud Bus Demo
+    message: Hello, Department Service... Spring Cloud Bus ?????
   datasource:
     url: jdbc:mysql://localhost:3306/department_db
     username: root
