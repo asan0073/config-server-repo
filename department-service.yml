@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   boot:
-    message: Hello, Department Service
+    message: Hello, Department Service, updated!!!
   datasource:
     url: jdbc:mysql://localhost:3306/department_db
     username: root
