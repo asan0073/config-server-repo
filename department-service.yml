@@ -10,8 +10,8 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-      hbm2ddl:
+        show_sql: true
+        hbm2ddl:
           auto: create
   cloud:
     config:
