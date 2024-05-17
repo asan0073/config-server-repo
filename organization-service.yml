@@ -1,0 +1,19 @@
+server:
+  port: 8085
+spring:
+  boot:
+    message: Hello, Organization Service..
+  datasource:
+    url: jdbc:mysql://localhost:3306/organization_db
+    username: root
+    password: root1234
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        hbm2ddl:
+          auto: update
+  cloud:
+    config:
+      import-check:
+        enabled: false
