@@ -21,7 +21,18 @@ spring:
     host: localhost
     port: 5672
     username: guest
-    password: guest        
+    password: guest     
+management:
+  health: #actuator endpoints for Circuit Breaker
+    circuitbreakers:
+      enabled: true
+  endpoint: #this will show all health details to the circuit
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'    
 eureka:
   service-url:
     defaultZone: http://localhost:8761/eureka
