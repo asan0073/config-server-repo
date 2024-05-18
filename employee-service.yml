@@ -17,6 +17,47 @@ spring:
     config:
       import-check:
         enabled: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  health: #actuator endpoints for Circuit Breaker
+    circuitbreakers:
+      enabled: true
+  endpoint: #this will show all health details to the circuit
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      EMPLOYEE-SERVICE: #we set the name of the circuit breaker as the spring.application.name value
+        register-health-indicator: true #this will enable the health indicator for circuit breaker
+        failure-rate-threshold: 50 #50% whenever failure rate pass this value, circuit breaker status will switch from close to open
+        minimum-number-of-calls: 5 #
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5 #switch from open to half open
+        permitted-number-of-calls-in-half-open-state: 3 #try 3 calls in half open state. if failed state will be switched to open, otherwise switch to close
+        sliding-window-type: count_based
+        sliding-window-size: 10
+
+  #retry configuration
+  retry:
+    instances:
+      EMPLOYEE-SERVICE:
+        register-health-indicator: true
+        max-attempts: 10
+        wait-duration:
+          seconds: 5
+
 
 eureka:
   service-url:
